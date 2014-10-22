@@ -16,5 +16,5 @@ setup(
     long_description=README,
     author='Jason Beverage',
     url="https://github.com/jasonbeverage/django-token",
-    install_requires=["Django"]
+    install_requires=["Django>=1.5"]
 )
