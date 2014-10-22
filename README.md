@@ -37,6 +37,14 @@ from django_token.models import Token
 token = Token.objects.create(user=myuser)
 ```
 
+If you REALLY want to reset all the tokens in your database, you can use the reset_tokens management command.
+
+```
+python manage.py reset_tokens
+```
+
+This is useful when you've just installed django-token, but is otherwise dangerous :)
+
 ## Token in headers
 
 The user's token should be passed in on every request in the HTTP authorization header.
