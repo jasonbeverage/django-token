@@ -5,6 +5,7 @@ from django.conf import settings
 
 import binascii
 
+
 class Token(models.Model):
     """
     An access token that is associated with a user.  This is essentially the same as the token model from Django REST Framework

@@ -1,10 +1,12 @@
-from django.http import HttpResponseForbidden, HttpResponseBadRequest
+from django.http import HttpResponseBadRequest
 from django.contrib import auth
+
 
 class TokenMiddleware(object):
     """
     Middleware that authenticates against a token in the http authorization header.
     """
+
     def process_request(self, request):
         auth_header = request.META.get('HTTP_AUTHORIZATION', b'').split()
 
@@ -18,9 +20,3 @@ class TokenMiddleware(object):
         user = auth.authenticate(token=auth_header[1])
         if user:
             request.user = user
-
-
-
-
-
-

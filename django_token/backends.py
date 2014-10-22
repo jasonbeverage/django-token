@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+
 class TokenBackend(object):
     def authenticate(self, token=None):
         """
