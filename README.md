@@ -39,7 +39,7 @@ token = Token.objects.create(user=myuser)
 
 ## Token in headers
 
-The user's token should be passed in on every request in the HTTP authentication header.
+The user's token should be passed in on every request in the HTTP authorization header.
 
 Using [requests](http://docs.python-requests.org/en/latest/)
 ```python
