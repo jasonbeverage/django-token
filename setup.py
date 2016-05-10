@@ -9,12 +9,12 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-token',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(),
     include_package_data=True,
     description='Simple token based authentication for Django',
     long_description=README,
     author='Jason Beverage',
     url="https://github.com/jasonbeverage/django-token",
-    install_requires=["Django>=1.5"]
+    install_requires=["Django>=1.9"]
 )
