@@ -1,10 +1,13 @@
-from django.core.management.base import BaseCommand, CommandError
-from django.utils.six.moves import input
+from __future__ import print_function
 
 from django.contrib.auth import get_user_model
+from django.core.management.base import BaseCommand, CommandError
+from django.utils.six.moves import input
+from django_token.models import Token
+
+
 User = get_user_model()
 
-from django_token.models import Token
 
 class Command(BaseCommand):
     help = "Resets the tokens for all users."
@@ -22,4 +25,6 @@ class Command(BaseCommand):
             Token.objects.filter(user=u).delete()
             # Create the new token
             token = Token.objects.create(user=u)
-            print "Resetting token for user %s: token = %s" % (token.user, token)
+            print(
+                'Resetting token for user {}: token = {}'.format(
+                    token.user, token))
