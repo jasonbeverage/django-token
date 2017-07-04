@@ -23,10 +23,9 @@ class TokenMiddleware(object):
         return self.get_response(request)
 
     def process_request(self, request):
-        auth_header = request.META.get('HTTP_AUTHORIZATION', b'')
-        auth_header = auth_header.partition(b' ')
+        auth_header = str(request.META.get('HTTP_AUTHORIZATION', '')).partition(' ')
 
-        if auth_header[0].lower() != b'token':
+        if auth_header[0].lower() != 'token':
             return None
 
         # If they specified an invalid token, let them know.
