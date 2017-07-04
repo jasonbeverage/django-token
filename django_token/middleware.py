@@ -8,15 +8,15 @@ class TokenMiddleware(object):
     """
 
     def process_request(self, request):
-        auth_header = request.META.get('HTTP_AUTHORIZATION', b'').split()
+        auth_header = request.META.get('HTTP_AUTHORIZATION', b'').partition(' ')
 
-        if not auth_header or auth_header[0].lower() != b'token':
+        if auth_header[0].lower() != b'token':
             return None
 
         # If they specified an invalid token, let them know.
-        if len(auth_header) != 2:
+        if not auth_header[2]:
             return HttpResponseBadRequest("Improperly formatted token")
 
-        user = auth.authenticate(token=auth_header[1])
+        user = auth.authenticate(token=auth_header[2])
         if user:
             request.user = user
