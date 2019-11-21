@@ -14,6 +14,7 @@ setup(
     include_package_data=True,
     description='Simple token based authentication for Django',
     long_description=README,
+    long_description_content_type='text/markdown',
     author='Jason Beverage',
     url="https://github.com/jasonbeverage/django-token",
     install_requires=["Django>=1.9"]
