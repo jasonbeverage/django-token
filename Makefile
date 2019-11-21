@@ -1,5 +1,6 @@
 publish:
-	python setup.py sdist upload
+	python setup.py sdist
+	twine upload dist/*
 
 lint:
 	@echo "Linting Python files"
